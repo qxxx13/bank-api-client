@@ -5,10 +5,10 @@ import { Router } from "./router/Router";
 
 export const App = () => {
     return (
-        <>
+        <div>
             <ParticlesBackground />
             <NavBar />
             <Router />
-        </>
+        </div>
     );
 };

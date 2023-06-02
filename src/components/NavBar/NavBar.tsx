@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export const NavBar: React.FC = () => {
     const navigate = useNavigate();
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState("1");
 
     const onTabsChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
