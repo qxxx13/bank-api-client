@@ -19,3 +19,7 @@ export const fetchBanks = (): Promise<AxiosResponse<BankModel>> => {
 export const addNewBank = (responseBody: responseBodyType) => {
     axiosInstance.post(`/bank`, responseBody).then((response) => console.log(response));
 };
+
+export const deleteBank = (id: number) => {
+    axiosInstance.delete(`/bank/${id}`).then((response) => console.log(response));
+};

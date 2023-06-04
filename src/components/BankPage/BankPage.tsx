@@ -8,13 +8,9 @@ import { BankList } from "./BankList/BankList";
 export const BankPage: React.FC = () => {
     const [openDialog, setOpenDialog] = useState(false);
 
-    const handleClickOpen = () => {
-        setOpenDialog(true);
-    };
+    const handleClickOpen = () => setOpenDialog(true);
 
-    const handleClose = () => {
-        setOpenDialog(false);
-    };
+    const handleClose = () => setOpenDialog(false);
 
     return (
         <Container sx={{ paddingTop: 10, position: "static" }}>
