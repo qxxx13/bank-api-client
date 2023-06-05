@@ -1,17 +1,14 @@
 import { Box, Button, Stack, TextField } from "@mui/material";
-import React, { useState, useCallback } from "react";
-import { addNewBankWatcher, loadBanks } from "../../../store/sagas/bankSaga/bankSagaModel";
+import React, { useCallback, useState } from "react";
+import { ClientModel } from "../../../models/ClientModel";
 import { useAppDispatch } from "../../../store/hooks";
+import { addNewClientWatcher, loadClients } from "../../../store/sagas/clientSaga/clientSagaModel";
 
-export type responseBankBodyType = {
-    name: string;
-    legalAddress: string;
-    image: string;
-};
+export type responseClientBodyType = Omit<ClientModel, "id">;
 
-export const AddNewBank: React.FC = () => {
-    const responseBodyInitial: responseBankBodyType = { name: "", legalAddress: "", image: "" };
-    const [responseBody, setResponseBody] = useState<responseBankBodyType>(responseBodyInitial);
+export const AddNewClient: React.FC = () => {
+    const responseBodyInitial: responseClientBodyType = { fullname: "", cardnumber: 1, address: "", bankcode: 1 };
+    const [responseBody, setResponseBody] = useState<responseClientBodyType>(responseBodyInitial);
 
     const dispatch = useAppDispatch();
 
@@ -19,15 +16,6 @@ export const AddNewBank: React.FC = () => {
         const { name, value } = event.target;
         setResponseBody({ ...responseBody, [name]: value });
     };
-
-    const onSubmitHandler = useCallback(
-        (event: React.FormEvent<HTMLFormElement>) => {
-            event.preventDefault();
-            dispatch(addNewBankWatcher(responseBody));
-            dispatch(loadBanks());
-        },
-        [dispatch, responseBody]
-    );
 
     const textFields = Object.keys(responseBodyInitial).map((keys) => (
         <TextField
@@ -40,6 +28,15 @@ export const AddNewBank: React.FC = () => {
             key={keys}
         />
     ));
+
+    const onSubmitHandler = useCallback(
+        (event: React.FormEvent<HTMLFormElement>) => {
+            event.preventDefault();
+            dispatch(addNewClientWatcher(responseBody));
+            dispatch(loadClients());
+        },
+        [responseBody, dispatch]
+    );
 
     return (
         <Box component={"form"} noValidate autoCapitalize="off" onSubmit={onSubmitHandler}>

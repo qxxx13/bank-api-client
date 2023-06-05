@@ -1,4 +1,4 @@
 export const routes = {
     bank: "/bank",
-    bankById: "/bank/:id",
+    client: "/client",
 };

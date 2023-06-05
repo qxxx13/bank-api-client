@@ -14,7 +14,7 @@ export const themeOptions = createTheme({
             paper: "#4495af",
         },
         info: {
-            main: "#007f29",
+            main: "#caf0f8",
         },
     },
 });

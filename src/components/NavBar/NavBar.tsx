@@ -11,6 +11,7 @@ export const NavBar: React.FC = () => {
     };
 
     const goToBankPage = useCallback(() => navigate("/bank"), [navigate]);
+    const goToClientPage = useCallback(() => navigate("/client"), [navigate]);
 
     return (
         <Box>
@@ -18,7 +19,7 @@ export const NavBar: React.FC = () => {
                 <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
                     <Tabs value={value} onChange={onTabsChange}>
                         <Tab value={"1"} label={"Bank"} onClick={goToBankPage} />
-                        <Tab value={"2"} label={"Client"} />
+                        <Tab value={"2"} label={"Client"} onClick={goToClientPage} />
                         <Tab value={"3"} label={"ATM"} />
                         <Tab value={"4"} label={"Operations"} />
                     </Tabs>

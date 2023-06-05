@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import React, { useCallback } from "react";
 import { BankModel } from "../../../models/BankModel";
 import { useAppDispatch } from "../../../store/hooks";
@@ -20,11 +20,15 @@ export const CurrentBank: React.FC<CurrentBankProps> = ({ bank }) => {
         <Box sx={{ padding: 2 }}>
             <Box component={"img"} src={bank.image} alt="bankImage" sx={{ width: 500, height: 350 }} />
             <Typography variant="h3">{bank.name}</Typography>
-            <Typography>{bank.legaladdress}</Typography>
-            <Button variant="outlined">Редактировать</Button>
-            <Button variant="outlined" color="error" onClick={onDeleteClick}>
-                Удалить
-            </Button>
+            <Typography color="text.secondary">{bank.legaladdress}</Typography>
+            <Stack sx={{ mt: 2 }}>
+                <Button variant="outlined" color="info">
+                    Редактировать
+                </Button>
+                <Button variant="outlined" color="error" onClick={onDeleteClick} sx={{ mt: 2 }}>
+                    Удалить
+                </Button>
+            </Stack>
         </Box>
     );
 };

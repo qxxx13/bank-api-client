@@ -15,7 +15,7 @@ export const BankListItem: React.FC<BankListItemProps> = ({ bank }) => {
     const handleClose = () => setOpenDialog(false);
 
     return (
-        <Card sx={{ width: 300, display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <Card sx={{ width: 300, display: "flex", flexDirection: "column", alignItems: "center" }} elevation={15}>
             <CardActionArea onClick={handleClickOpen}>
                 <CardMedia component="img" height={200} image={bank.image} alt="bankImg" />
                 <CardContent>

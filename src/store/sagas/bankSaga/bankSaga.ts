@@ -6,7 +6,7 @@ import { addNewBank, deleteBank, fetchBanks } from "../../../services/apiService
 import { BankModel } from "../../../models/BankModel";
 import { setBanks } from "../../banksReducer/banksReducer";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { responseBodyType } from "../../../components/BankPage/AddNewBank/AddNewBank";
+import { responseBankBodyType } from "../../../components/BankPage/AddNewBank/AddNewBank";
 
 export const banksSaga = [
     takeLatest(loadBanks, fetchBanksWorker),
@@ -25,7 +25,7 @@ function* fetchBanksWorker(): Generator {
     }
 }
 
-function* addNewBankWorker(action: PayloadAction<responseBodyType>): Generator {
+function* addNewBankWorker(action: PayloadAction<responseBankBodyType>): Generator {
     try {
         yield put(setIsLoading(true));
         yield call(addNewBank, action.payload);
