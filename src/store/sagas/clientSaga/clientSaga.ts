@@ -6,7 +6,7 @@ import { addNewClient, deleteClient, fetchClients } from "../../../services/apiS
 import { ClientModel } from "../../../models/ClientModel";
 import { setClients } from "../../clientReducer/clientReducer";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { responseClientBodyType } from "../../../components/ClientPage/AddNewClient/AddNewClient";
+import { responseClientBodyType } from "../../../models/ResponseModel";
 
 export const clientSaga = [
     takeLatest(loadClients, fetchClientsWorker),

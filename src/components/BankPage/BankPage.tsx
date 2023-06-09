@@ -2,11 +2,14 @@ import React, { useState } from "react";
 
 import { Button, Container, Dialog } from "@mui/material";
 import CreateIcon from "@mui/icons-material/Create";
-import { AddNewBank } from "./AddNewBank/AddNewBank";
 import { BankList } from "./BankList/BankList";
+import { AddNewData } from "../AddNewData/AddNewData";
+import { responseBankBodyType } from "../../models/ResponseModel";
 
 export const BankPage: React.FC = () => {
     const [openDialog, setOpenDialog] = useState(false);
+
+    const responseBodyInitial: responseBankBodyType = { name: "", legalAddress: "", image: "" };
 
     const handleClickOpen = () => setOpenDialog(true);
 
@@ -18,7 +21,7 @@ export const BankPage: React.FC = () => {
                 Добавить новый банк <CreateIcon sx={{ ml: 1 }} />
             </Button>
             <Dialog open={openDialog} onClose={handleClose}>
-                <AddNewBank />
+                <AddNewData responseBodyInitial={responseBodyInitial} watcher="bank" />
             </Dialog>
             <BankList />
         </Container>

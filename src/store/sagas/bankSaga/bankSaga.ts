@@ -6,7 +6,7 @@ import { addNewBank, deleteBank, fetchBanks } from "../../../services/apiService
 import { BankModel } from "../../../models/BankModel";
 import { setBanks } from "../../banksReducer/banksReducer";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { responseBankBodyType } from "../../../components/BankPage/AddNewBank/AddNewBank";
+import { responseBankBodyType } from "../../../models/ResponseModel";
 
 export const banksSaga = [
     takeLatest(loadBanks, fetchBanksWorker),

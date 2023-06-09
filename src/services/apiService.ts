@@ -1,8 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { BankModel } from "../models/BankModel";
-import { responseBankBodyType } from "../components/BankPage/AddNewBank/AddNewBank";
 import { ClientModel } from "../models/ClientModel";
-import { responseClientBodyType } from "../components/ClientPage/AddNewClient/AddNewClient";
+import { responseBankBodyType, responseClientBodyType } from "../models/ResponseModel";
 
 const axiosInstance = axios.create({
     baseURL: "http://localhost:8080/api",

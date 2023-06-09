@@ -14,10 +14,7 @@ export const ClientList: React.FC = () => {
         dispatch(loadClients());
     }, [dispatch]);
 
-    const clientList = useMemo(
-        () => clients.map((client) => <ClientItem client={client} key={client.id} />),
-        [clients]
-    );
+    const clientList = useMemo(() => clients.map((client) => <ClientItem client={client} key={client.id} />), [clients]);
 
     useEffect(() => {
         updateClients();

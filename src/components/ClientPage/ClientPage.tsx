@@ -2,9 +2,10 @@ import { Button, Container, Dialog } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import { useAppDispatch } from "../../store/hooks";
 import { loadClients } from "../../store/sagas/clientSaga/clientSagaModel";
-import { AddNewClient } from "./AddNewClient/AddNewClient";
 import CreateIcon from "@mui/icons-material/Create";
 import { ClientList } from "./ClientList/ClientList";
+import { AddNewData } from "../AddNewData/AddNewData";
+import { responseClientBodyType } from "../../models/ResponseModel";
 
 export const ClientPage: React.FC = () => {
     const [openDialog, setOpenDialog] = useState(false);
@@ -16,6 +17,8 @@ export const ClientPage: React.FC = () => {
 
     const updateClients = useCallback(() => dispatch(loadClients()), [dispatch]);
 
+    const responseBodyinitial: responseClientBodyType = { fullname: "", cardnumber: 1, address: "", bankcode: 1 };
+
     useEffect(() => {
         updateClients();
     }, [updateClients]);
@@ -26,7 +29,7 @@ export const ClientPage: React.FC = () => {
                 Добавить нового клиента <CreateIcon sx={{ ml: 1 }} />
             </Button>
             <Dialog onClose={handleClose} open={openDialog}>
-                <AddNewClient />
+                <AddNewData responseBodyInitial={responseBodyinitial} watcher="client" />
             </Dialog>
             <ClientList />
         </Container>
