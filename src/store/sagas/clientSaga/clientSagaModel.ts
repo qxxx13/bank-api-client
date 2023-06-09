@@ -3,3 +3,4 @@ import { responseClientBodyType } from "../../../components/ClientPage/AddNewCli
 
 export const loadClients = createAction("LOAD_CLIENTS");
 export const addNewClientWatcher = createAction<responseClientBodyType>("ADD_NEW_CLIENT");
+export const deleteClientWatcher = createAction<number>("DELETE_CLIENT");

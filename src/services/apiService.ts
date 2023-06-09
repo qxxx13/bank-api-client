@@ -34,3 +34,7 @@ export const fetchClients = (): Promise<AxiosResponse<ClientModel[]>> => {
 export const addNewClient = (responseBody: responseClientBodyType) => {
     axiosInstance.post(`/client`, responseBody).then((response) => console.log(response));
 };
+
+export const deleteClient = (id: number) => {
+    axiosInstance.delete(`/client/${id}`).then((response) => console.log(response));
+};

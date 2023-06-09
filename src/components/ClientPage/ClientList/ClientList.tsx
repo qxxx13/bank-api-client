@@ -23,5 +23,5 @@ export const ClientList: React.FC = () => {
         updateClients();
     }, [updateClients]);
 
-    return <Box sx={{ display: "flex" }}>{clientList}</Box>;
+    return <Box sx={{ display: "flex", justifyContent: "space-around" }}>{clientList}</Box>;
 };
