@@ -34,7 +34,10 @@ export const CurrentClient: React.FC<CurrentClientProps> = ({ client }) => {
     return (
         <Stack sx={{ padding: 2 }}>
             {TypographyList}
-            <Button color="error" variant="outlined" onClick={onDeleteClick} sx={{ mt: 2 }}>
+            <Button color="info" variant="outlined" sx={{ mt: 2 }}>
+                Редактировать
+            </Button>
+            <Button color="error" variant="outlined" onClick={onDeleteClick} sx={{ mt: 1 }}>
                 Удалить
             </Button>
         </Stack>

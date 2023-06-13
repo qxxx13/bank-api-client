@@ -20,9 +20,5 @@ export const BankList: React.FC = () => {
         updateBanks();
     }, [updateBanks]);
 
-    return (
-        <Box sx={{ display: "flex", width: "100%", height: "100%", justifyContent: "space-around" }}>
-            {!isLoading ? banksList : <CircularProgress />}
-        </Box>
-    );
+    return <Box sx={{ display: "flex", justifyContent: "space-around" }}>{!isLoading ? banksList : <CircularProgress />}</Box>;
 };
