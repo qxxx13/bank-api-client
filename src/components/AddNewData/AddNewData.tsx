@@ -18,8 +18,6 @@ export const AddNewData: React.FC<AddNewDataProps> = ({ responseBodyInitial, wat
 
     const dispatchData = useDataAppend(watcher, responseBody);
 
-    //? Как передать диспатч разных watcher'ов в функцию
-
     const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         dispatchData();
