@@ -7,3 +7,8 @@ export type responseBankBodyType = {
 };
 
 export type responseClientBodyType = Omit<ClientModel, "id">;
+
+export type responseATMBodyType = {
+    address: string;
+    bankCode: number;
+};

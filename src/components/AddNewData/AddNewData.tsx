@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Box, Button, Stack, TextField } from "@mui/material";
-import { responseBankBodyType, responseClientBodyType } from "../../models/ResponseModel";
+import { responseATMBodyType, responseBankBodyType, responseClientBodyType } from "../../models/ResponseModel";
 import { useDataAppend } from "../../hooks/useDataAppend";
 
 type AddNewDataProps = {
-    responseBodyInitial: responseBankBodyType | responseClientBodyType;
-    watcher: "bank" | "client";
+    responseBodyInitial: responseBankBodyType | responseClientBodyType | responseATMBodyType;
+    watcher: "bank" | "client" | "atm";
+    isEdit?: boolean;
 };
 
 export const AddNewData: React.FC<AddNewDataProps> = ({ responseBodyInitial, watcher }) => {

@@ -2,12 +2,12 @@ import { call, put, takeLatest } from "redux-saga/effects";
 
 import { loadBanks, addNewBankWatcher, deleteBankWatcher, loadBankClients } from "./bankSagaModel";
 import { setIsLoading } from "../../appReducer/appReducer";
-import { addNewBank, deleteBank, fetchBanks, fetchClientsByBankCode } from "../../../services/apiService";
 import { BankModel } from "../../../models/BankModel";
 import { setBankClients, setBanks, setIsBankClientsLoading } from "../../banksReducer/banksReducer";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { responseBankBodyType } from "../../../models/ResponseModel";
 import { ClientModel } from "../../../models/ClientModel";
+import { addNewBank, deleteBank, fetchBanks, fetchClientsByBankCode } from "../../../services/bankService";
 
 export const banksSaga = [
     takeLatest(loadBanks, fetchBanksWorker),

@@ -33,6 +33,9 @@ export const CurrentBank: React.FC<CurrentBankProps> = ({ bank }) => {
             <Box component={"img"} src={bank.image} alt="bankImage" sx={{ width: 500, height: 350 }} />
             <Typography variant="h3">{bank.name}</Typography>
             <Typography color="text.secondary">{bank.legaladdress}</Typography>
+            <Typography variant="body1" sx={{ mt: 1 }}>
+                Клиенты:
+            </Typography>
             <Stack>{!isLoading ? bankClientList : <CircularProgress />}</Stack>
             <Stack sx={{ mt: 2 }}>
                 <Button variant="outlined" color="info">
